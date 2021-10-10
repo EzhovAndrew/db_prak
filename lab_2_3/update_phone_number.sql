@@ -11,3 +11,4 @@ where id in (
 	join countries as ct on c.country_id = ct.id
 	where ct.name = 'Россия'
 ) and phone is not null
+returning first_name, last_name, phone

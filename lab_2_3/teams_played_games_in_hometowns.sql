@@ -1,6 +1,9 @@
 set search_path to main;
 
-select distinct t.name, c1.name as hometown, s.first_name, s.last_name
+select distinct t.name,
+	c1.name as hometown,
+	s.first_name as leader_first_name,
+	s.last_name as leader_last_name
 from teams as t
 join teamsstudents as ts on ts.team_id = t.id
 join students as s on s.id  = ts.student_id
