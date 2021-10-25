@@ -101,10 +101,10 @@ def generate_games_csv(config: Any) -> None:
 
 
 def generate_reports_csv(config: Any, reports: List) -> None:
-    with open('reports2.csv', 'w') as f:
+    with open('reports.csv', 'w') as f:
         csvwriter = csv.writer(f, delimiter='|')
         for i in range(1, 10_001):
-            for j in range(3001, 3501):
+            for j in range(1, 10_001):
                 team_id = i
                 game_id = j
                 report = random.choice(reports)[:50].replace('|', '')
@@ -142,12 +142,12 @@ def edit_csv(filename: str) -> None:
 def main() -> None:
     reviews = pd.read_csv('IMDB_Dataset.csv')['review'].values
 
-    # generate_teams_csv(config)
-    # generate_games_csv(config)
+    generate_teams_csv(config)
+    generate_games_csv(config)
     generate_reports_csv(config, reviews)
-    # edit_csv('/home/andrew/db_prak/lab_3_1/teams.csv')
-    # edit_csv('/home/andrew/db_prak/lab_3_1/games.csv')
-    edit_csv('/home/andrew/db_prak/lab_3_1/reports2.csv')
+    edit_csv('/home/andrew/db_prak/lab_3_1/teams.csv')
+    edit_csv('/home/andrew/db_prak/lab_3_1/games.csv')
+    edit_csv('/home/andrew/db_prak/lab_3_1/reports.csv')
 
 if __name__ == '__main__':
     main()
