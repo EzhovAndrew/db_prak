@@ -36,7 +36,6 @@ begin
 	end loop;
 	std_dev = round(power(sum_ / (counter - 1), 0.5), 2);
 	return next std_dev;
-	return;
 	
 	exception
 		when sqlstate '42051' then
